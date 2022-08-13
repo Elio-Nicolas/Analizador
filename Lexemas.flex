@@ -23,4 +23,4 @@ while {lexemas=yytext(); return Reservadas;}
 "/" {lexemas=yytext();return Division;}
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}
 ("(-"{D}+")")|{D}+ {lexema=yytext(); return Número;}
- . {return ERROR;}
+ . {lexemas=yytext();return ERROR;}
