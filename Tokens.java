@@ -11,13 +11,31 @@ package Principal;
  */
 public enum Tokens {
     
-    Reservadas,
+    Int,
+    If,
+    Else,
+    While,
+    Package,
+    Public,
+    Class,
+    Private,
+    Void,
+    Static,
+    Linea,
     Igual,
     Suma,
     Resta,
     Multiplicacion,
     Division,
+    Parentesis_A,
+    Parentesis_C,
+    Llave_A,
+    Llave_C,
+    Punto_Coma,
+    Corchete_A,
+    Corchete_C,
     Identificador,
     Número,
+    Cadena,
     ERROR
 }
