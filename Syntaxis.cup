@@ -10,7 +10,7 @@ parser code
         this.s = s;
     }
 
-    public symbol getS(){
+    public Symbol getS(){
         return this.s;
 }
 :};
@@ -19,41 +19,42 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For,
     Igual, Suma, Resta, Multiplicacion, Division, Op_logico, Op_relacional,
     Op_atribución, Op_incremento, Op_booleano, Parentesis_A, Parentesis_C,
     Llave_A, Llave_C, Corchete_A, Corchete_C, Main, Punto_Coma, Identificador,
-    Número, ERROR,Package,Void,Public,Static,Private;
+    Número, ERROR,Package,Void,Public,Estatico,Private;
 
-no terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, DO_WHILE, POR, SENTENCIA_BOOLEANA, SENTENCIA_FOR;
+non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
+    WHILE, DO_WHILE, POR, SENTENCIA_BOOLEANA, SENTENCIA_FOR,RETURN;
+
 
 start whith INICIO;
 
 INICIO ::=
     Package Identificador Punto_Coma  
-    Public Static Void Main Parentesis_A Cadena Corchete_A Corchete_C Identificador Parentesis_C Llave_A SENTENCIA Llave_C;
+    Public Estatico Void Main Parentesis_A Cadena Corchete_A Corchete_C Identificador Parentesis_C Llave_A SENTENCIA Llave_C;
 
 SENTENCIA ::=
-    SENTENCIA DECLARACION |
-    DECLARACIÓN |
-    SENTENCIA IF |
-    IF |
-    SENTENCIA IF_ELSE |
-    IF_ELSE |
-    SENTENCIA WHILE |
-    WHILE |
-    SENTENCIA DO_WHILE
-    DO_WHILE |
-    SENTENCIA FOR |
-    FOR
+    SENTENCIA DECLARACION 
+   |DECLARACIÓN 
+   |SENTENCIA IF 
+   |IF 
+   |SENTENCIA IF_ELSE 
+   |IF_ELSE 
+   |SENTENCIA WHILE 
+   |WHILE 
+   |SENTENCIA DO_WHILE
+   |DO_WHILE 
+   |SENTENCIA FOR 
+   |FOR
 ;
 DECLARACION ::=
-    Identificador T_dato P_coma |
-    Identificador T_dato Op_atribucion Numero P_coma |
-    Identificador T_dato Igual Numero P_coma |
-    Identificador T_dato Op_incremento P_coma |
-    Identificador T_dato Op_incremento P_coma |
-    Cadena Identificador Op_atribucion Comillas Comillas P_coma |
-    Cadena Identificador Igual Comillas Comillas P_coma |
-    Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas P_coma
+    Identificador T_dato Punto_Coma |
+    Identificador T_dato Op_atribucion Numero Punto_Coma |
+    Identificador T_dato Igual Numero Punto_Coma |
+    Identificador T_dato Op_incremento Punto_Coma |
+    Identificador T_dato Op_incremento Punto_Coma |
+    Cadena Identificador Op_atribucion Comillas Comillas Punto_Coma |
+    Cadena Identificador Igual Comillas Comillas Punto_Coma |
+    Cadena Identificador Op_atribucion Comillas Identificador Comillas Punto_Coma |
+    Cadena Identificador Igual Comillas Identificador Comillas Punto_Coma
 ;
 IF ::= If Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c
 ;

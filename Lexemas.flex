@@ -1,4 +1,4 @@
-Package Principal;
+package Principal;
 import static Principal.Tokens.*;
 %%
 %class Lexemas
@@ -19,8 +19,9 @@ public {lexemas=yytext();return Public;}
 class {lexemas=yytext();return Class;}
 private {lexemas=yytext();return Private;}
 void {lexemas=yytext();return Void;}
-static{lexemas=yytext();return Static;}   //agregar a lexemas.cup
-String{lexemas=yytext();return Cadena;}
+static {lexemas=yytext();return Estatico;}   
+String {lexemas=yytext();return Cadena;}
+return {lexemas=yytext();return Return;}
 {espacio} {/*Ignorar*/}
 "//".* {/*Ignorar*/}
 "\n" {lexemas=yytext();return Linea;}
@@ -33,10 +34,10 @@ String{lexemas=yytext();return Cadena;}
 ")" {lexemas=yytext();return Parentesis_C;}
 "{" {lexemas=yytext();return Llave_A;}
 "}" {lexemas=yytext();return Llave_C;}
-";" {lexemas=yytext();return Punto_coma;}
-"[" {lexemas=yytext();return Corchete_A;}  //agregar a lexemas.cup
-"]" {lexemas=yytext();return Corchete_C;} //agregar a lexemas.cup
+";" {lexemas=yytext();return Punto_Coma;}
+"[" {lexemas=yytext();return Corchete_A;}  
+"]" {lexemas=yytext();return Corchete_C;} 
 
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}
-("(-"{D}+")")|{D}+ {lexema=yytext(); return Número;}
+("(-"{D}+")")|{D}+ {lexemas=yytext(); return Número;}
  . {lexemas=yytext();return ERROR;}

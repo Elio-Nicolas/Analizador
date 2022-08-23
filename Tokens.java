@@ -20,7 +20,7 @@ public enum Tokens {
     Class,
     Private,
     Void,
-    Static,
+    Estatico,
     Linea,
     Igual,
     Suma,
@@ -37,5 +37,6 @@ public enum Tokens {
     Identificador,
     Número,
     Cadena,
+    Return,
     ERROR
 }
