@@ -1,7 +1,7 @@
 package Principal;
 
-import java_cup.util.Symbol;
-
+//import java_cup.util.Symbol;
+import java_cup.runtime.Symbol;
 parser code
 {:
     private Symbol s;
@@ -17,15 +17,15 @@ parser code
 
 terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For,
     Igual, Suma, Resta, Multiplicacion, Division, Op_logico, Op_relacional,
-    Op_atribución, Op_incremento, Op_booleano, Parentesis_A, Parentesis_C,
+    Op_atribucion, Op_incremento, Op_booleano, Parentesis_A, Parentesis_C,
     Llave_A, Llave_C, Corchete_A, Corchete_C, Main, Punto_Coma, Identificador,
-    Número, ERROR,Package,Void,Public,Estatico,Private;
+    Numero, ERROR,Package,Void,Public,Estatico,Private;
 
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, DO_WHILE, POR, SENTENCIA_BOOLEANA, SENTENCIA_FOR,RETURN;
+    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR,RETORNO;
 
 
-start whith INICIO;
+
 
 INICIO ::=
     Package Identificador Punto_Coma  
@@ -33,7 +33,7 @@ INICIO ::=
 
 SENTENCIA ::=
     SENTENCIA DECLARACION 
-   |DECLARACIÓN 
+   |DECLARACION 
    |SENTENCIA IF 
    |IF 
    |SENTENCIA IF_ELSE 
@@ -50,13 +50,12 @@ DECLARACION ::=
     Identificador T_dato Op_atribucion Numero Punto_Coma |
     Identificador T_dato Igual Numero Punto_Coma |
     Identificador T_dato Op_incremento Punto_Coma |
-    Identificador T_dato Op_incremento Punto_Coma |
     Cadena Identificador Op_atribucion Comillas Comillas Punto_Coma |
     Cadena Identificador Igual Comillas Comillas Punto_Coma |
     Cadena Identificador Op_atribucion Comillas Identificador Comillas Punto_Coma |
     Cadena Identificador Igual Comillas Identificador Comillas Punto_Coma
 ;
-IF ::= If Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c
+IF ::= If Parentesis_A SENTENCIA_BOOLEANA Parentesis_C Llave_A SENTENCIA Llave_C
 ;
 SENTENCIA_BOOLEANA ::=
     Op_booleano |
@@ -68,9 +67,9 @@ SENTENCIA_BOOLEANA ::=
 ;
 IF_ELSE ::= If Parentesis_A SENTENCIA_BOOLEANA Parentesis_C Llave_A SENTENCIA Llave_C Else Llave_A SENTENCIA Llave_C
 ;
-WHILE ::= Mientras Parentesis_A SENTENCIA_BOOLEANA Parentesis_C Llave_A SENTENCIA Llave_C
+WHILE ::= WHILE Parentesis_A SENTENCIA_BOOLEANA Parentesis_C Llave_A SENTENCIA Llave_C
 ;
-DO_WHILE ::= Do Llave_A SENTENCIA Llave_C WHILE Parentesis_A SENTENCIA_BOOLEANA Parentesis_C Punto_coma
+DO_WHILE ::= Do Llave_A SENTENCIA Llave_C WHILE Parentesis_A SENTENCIA_BOOLEANA Parentesis_C Punto_Coma
 ;
 FOR ::= For Parentesis_A SENTENCIA_FOR Parentesis_C Llave_A SENTENCIA Llave_C
 ;

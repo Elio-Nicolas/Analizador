@@ -11,13 +11,12 @@ package Principal;
  */
 public enum Tokens {
     
-    Int,
+   // Entero,
     If,
     Else,
     While,
     Package,
     Public,
-    Class,
     Private,
     Void,
     Estatico,
@@ -35,8 +34,7 @@ public enum Tokens {
     Corchete_A,
     Corchete_C,
     Identificador,
-    Número,
+    Numero,
     Cadena,
-    Return,
     ERROR
 }

@@ -10,18 +10,17 @@ espacio=[ ,\t,\r]+
     public String lexemas;
 %}
 %%
-int {lexemas=yytext(); return Int;}
+
+//int {lexemas=yytext(); return Entero;}
 if {lexemas=yytext(); return If;}
 else {lexemas=yytext(); return Else;}
 while {lexemas=yytext(); return While;}
 package {lexemas=yytext();return Package;}
 public {lexemas=yytext();return Public;}
-class {lexemas=yytext();return Class;}
 private {lexemas=yytext();return Private;}
 void {lexemas=yytext();return Void;}
 static {lexemas=yytext();return Estatico;}   
 String {lexemas=yytext();return Cadena;}
-return {lexemas=yytext();return Return;}
 {espacio} {/*Ignorar*/}
 "//".* {/*Ignorar*/}
 "\n" {lexemas=yytext();return Linea;}
@@ -39,5 +38,5 @@ return {lexemas=yytext();return Return;}
 "]" {lexemas=yytext();return Corchete_C;} 
 
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}
-("(-"{D}+")")|{D}+ {lexemas=yytext(); return Número;}
+("(-"{D}+")")|{D}+ {lexemas=yytext(); return Numero;}
  . {lexemas=yytext();return ERROR;}
